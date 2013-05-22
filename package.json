@@ -1,0 +1,16 @@
+{
+  "name": "muchmala-api",
+  "version": "0.0.0",
+  "description": "Muchmala api server",
+  "contributors": [
+    "Serge Borbit <serge.borbit@gmail.com>"
+  ],
+  "dependencies": {
+    "nodemailer": "*",
+    "express": "*",
+    "lodash": "*",
+    "async": "*",
+    "redis": "*",
+    "ejs": "*"
+  }
+}
