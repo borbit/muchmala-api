@@ -5,7 +5,7 @@ var cmn = require('muchmala-cmn');
 var board = require('./lib/board');
 var users = require('./lib/users');
 var sign = require('./lib/sign');
-var next = require('./lib/next');
+var rand = require('./lib/rand');
 var cors = require('./lib/cors');
 
 exports.createServer = function(config, cb) {
@@ -27,7 +27,7 @@ exports.createServer = function(config, cb) {
   app.use(board(redisClient));
   app.use(users(redisClient));
   app.use(sign(redisClient));
-  app.use(next(redisClient));
+  app.use(rand(redisClient));
   
   app.listen(config.port, config.host, cb);
 };
