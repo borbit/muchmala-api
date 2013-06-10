@@ -6,6 +6,8 @@ var board = require('./lib/board');
 var users = require('./lib/users');
 var sign = require('./lib/sign');
 var rand = require('./lib/rand');
+var prev = require('./lib/prev');
+var next = require('./lib/next');
 var cors = require('./lib/cors');
 
 exports.createServer = function(config, cb) {
@@ -14,6 +16,7 @@ exports.createServer = function(config, cb) {
 
   app.use(cors([
     'http://localhost:8002'
+  , 'http://192.168.0.100:8002'
   , 'http://muchmala.dev'
   , 'http://muchmala.com'
   ]));
@@ -28,6 +31,8 @@ exports.createServer = function(config, cb) {
   app.use(users(redisClient));
   app.use(sign(redisClient));
   app.use(rand(redisClient));
+  app.use(prev(redisClient));
+  app.use(next(redisClient));
   
   app.listen(config.port, config.host, cb);
 };
