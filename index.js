@@ -17,7 +17,7 @@ exports.createServer = function(config, cb) {
   app.use(cors([
     'http://localhost:8002'
   , 'http://192.168.0.100:8002'
-  , 'http://muchmala.dev'
+  , 'http://muchmala.com:8002'
   , 'http://muchmala.com'
   ]));
 
