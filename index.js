@@ -1,3 +1,4 @@
+var redis = require('redis-url');
 var express = require('express');
 var cmn = require('muchmala-cmn');
 
@@ -8,10 +9,6 @@ var rand = require('./lib/rand');
 var prev = require('./lib/prev');
 var next = require('./lib/next');
 var cors = require('./lib/cors');
-
-var redis = require('redis');
-var parse = require('parse-redis-url');
-redis = parse(redis);
 
 exports.createServer = function(config, cb) {
   var redisClient = redis.createClient(config.redis);
