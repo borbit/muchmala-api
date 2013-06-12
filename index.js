@@ -1,4 +1,3 @@
-var redis = require('redis');
 var express = require('express');
 var cmn = require('muchmala-cmn');
 
@@ -10,8 +9,12 @@ var prev = require('./lib/prev');
 var next = require('./lib/next');
 var cors = require('./lib/cors');
 
+var redis = require('redis');
+var parse = require('parse-redis-url');
+redis = parse(redis);
+
 exports.createServer = function(config, cb) {
-  var redisClient = redis.createClient();
+  var redisClient = redis.createClient(config.redis);
   var app = express();
 
   app.use(cors([
